@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Propiedades en Venta</h1>
+    <div id="properties-list"></div>
+
+    <script>
+        const propiedades_venta = [
+            { nombre: 'Apartamento lujoso', src: 'venta1.jpg', descripcion: 'Vista al mar.', ubicacion: 'Playa', habitaciones: 3, costo: 250000, smoke: false, pets: true },
+            { nombre: 'Casa familiar', src: 'venta2.jpg', descripcion: 'Barrio tranquilo.', ubicacion: 'Suburbio', habitaciones: 5, costo: 300000, smoke: true, pets: true },
+            { nombre: 'Loft urbano', src: 'venta3.jpg', descripcion: 'Diseño moderno.', ubicacion: 'Centro', habitaciones: 2, costo: 200000, smoke: false, pets: false },
+            { nombre: 'Villa en la montaña', src: 'venta4.jpg', descripcion: 'Paisaje espectacular.', ubicacion: 'Montaña', habitaciones: 4, costo: 400000, smoke: true, pets: true }
+        ];
+
+        const propertiesList = document.getElementById('properties-list');
+
+        propiedades_venta.forEach(propiedad => {
+            const propertyTemplate = `
+                <div class="property">
+                    <h3>${propiedad.nombre}</h3>
+                    <img src="${propiedad.src}" alt="${propiedad.nombre}" style="width:100%">
+                    <p>${propiedad.descripcion}</p>
+                    <p>Ubicación: ${propiedad.ubicacion}</p>
+                    <p>Habitaciones: ${propiedad.habitaciones}</p>
+                    <p>Precio: $${propiedad.costo}</p>
+                    <p>${propiedad.smoke ? 'Permite fumar' : 'No permite fumar'}</p>
+                    <p>${propiedad.pets ? 'Permite mascotas' : 'No permite mascotas'}</p>
+                </div>
+            `;
+            propertiesList.innerHTML += propertyTemplate;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Propiedades en Alquiler</h1>
+    <div id="properties-list"></div>
+
+    <script>
+        const propiedades_alquiler = [
+            { nombre: 'Departamento en el centro', src: 'alquiler1.jpg', descripcion: 'Cerca de todo.', ubicacion: 'Centro', habitaciones: 3, costo: 800, smoke: false, pets: true },
+            { nombre: 'Casa en las afueras', src: 'alquiler2.jpg', descripcion: 'Amplio jardín.', ubicacion: 'Afueras', habitaciones: 4, costo: 1200, smoke: true, pets: true },
+            { nombre: 'Estudio moderno', src: 'alquiler3.jpg', descripcion: 'Ideal para una persona.', ubicacion: 'Centro', habitaciones: 1, costo: 500, smoke: false, pets: false },
+            { nombre: 'Cabaña en el bosque', src: 'alquiler4.jpg', descripcion: 'Rodeada de naturaleza.', ubicacion: 'Bosque', habitaciones: 2, costo: 600, smoke: true, pets: true }
+        ];
+
+        const propertiesList = document.getElementById('properties-list');
+
+        propiedades_alquiler.forEach(propiedad => {
+            const propertyTemplate = `
+                <div class="property">
+                    <h3>${propiedad.nombre}</h3>
+                    <img src="${propiedad.src}" alt="${propiedad.nombre}" style="width:100%">
+                    <p>${propiedad.descripcion}</p>
+                    <p>Ubicación: ${propiedad.ubicacion}</p>
+                    <p>Habitaciones: ${propiedad.habitaciones}</p>
+                    <p>Costo: $${propiedad.costo} / mes</p>
+                    <p>${propiedad.smoke ? 'Permite fumar' : 'No permite fumar'}</p>
+                    <p>${propiedad.pets ? 'Permite mascotas' : 'No permite mascotas'}</p>
+                </div>
+            `;
+            propertiesList.innerHTML += propertyTemplate;
+        });
+    </script>
+</body>
+</html>
